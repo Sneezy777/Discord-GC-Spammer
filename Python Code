@@ -1,0 +1,23 @@
+import time
+import pyautogui
+import random
+from pynput.keyboard import Key, Controller
+
+kb = Controller()
+x = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+time.sleep(1)
+random_wait_time = random.randrange(1.0, 10.0)
+while True:
+    time.sleep(1)
+    pyautogui.click(500, 200)
+    pyautogui.typewrite(random.choice(x))
+    y = random.randrange(1.0, 10.0)
+    if y == 1:
+        pyautogui.typewrite(random.choice(x))
+        print("Added new digit (10% chance)")
+    pyautogui.click(500, 300)
+    time.sleep(1)
+    pyautogui.click(500, 200)
+    kb.press(Key.backspace)
+    kb.release(Key.backspace)
+    pyautogui.click(500, 300)
